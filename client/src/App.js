@@ -1,12 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
+import CalendarWidget from "./components/CalendarWidget/CalendarWidget";
+// import logo from "./logo.svg";
 import "./style.css";
 
 function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+                {/* <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     Edit <code>src/components/index.js</code> and save to reload.
                     <br />
@@ -19,8 +20,11 @@ function App() {
                     rel="noopener noreferrer"
                 >
                     Learn React
-                </a>
+                </a> */}
             </header>
+            <body>
+                <CalendarWidget />
+            </body>
         </div>
     );
 }

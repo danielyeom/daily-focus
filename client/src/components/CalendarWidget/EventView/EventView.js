@@ -24,7 +24,9 @@ export default function EventView({ selected }) {
             <h2>
                 {selected.getDate()} {months[selected.getMonth()]}
             </h2>
-            <button>Add Event</button>
+            <button onClick={() => console.log("trying to add event for: ", selected.getDate())}>
+                Add Event
+            </button>
         </div>
     );
 }

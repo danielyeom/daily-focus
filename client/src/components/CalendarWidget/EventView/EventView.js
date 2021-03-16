@@ -3,7 +3,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-export default function EventView({ selected }) {
+// import "./EventView.css";
+
+const event = (props) => {
     const months = [
         "January",
         "February",
@@ -20,13 +22,45 @@ export default function EventView({ selected }) {
     ];
 
     return (
-        <div>
-            <h2>
-                {selected.getDate()} {months[selected.getMonth()]}
-            </h2>
-            <button onClick={() => console.log("trying to add event for: ", selected.getDate())}>
-                Add Event
-            </button>
+        <div className="event">
+            <p onClick={props.click}>
+                Date: {props.date}, Month: {months[props.month]}, Title: {props.title}, Description:{" "}
+                {props.description}
+            </p>
+            <button onClick={props.delete}>-</button>
+            {props.show ? (
+                <div>
+                    <input
+                        type="text"
+                        defaultValue="change title"
+                        onChange={props.changeTitle}
+                        value={props.title}
+                    />
+                    <input
+                        type="text"
+                        defaultValue="change description"
+                        onChange={props.changedDescription}
+                        value={props.description}
+                    />
+                </div>
+            ) : null}
         </div>
     );
+};
+export default event;
+
+{
+    /* {props.selected.getDate()} {months[props.selected.getMonth()]}
+    {console.log(props)} */
+}
+{
+    /* <input type='text' onChange={props.changed} value={props.name}/> */
+}
+{
+    /* <button onClick={() => console.log("trying to add event for: ", months[props.selected.getMonth()])}>
+    Add Event
+</button> */
+}
+{
+    /* <button onClick>-</button> */
 }

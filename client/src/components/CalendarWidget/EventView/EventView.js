@@ -48,19 +48,3 @@ const event = (props) => {
     );
 };
 export default event;
-
-{
-    /* {props.selected.getDate()} {months[props.selected.getMonth()]}
-    {console.log(props)} */
-}
-{
-    /* <input type='text' onChange={props.changed} value={props.name}/> */
-}
-{
-    /* <button onClick={() => console.log("trying to add event for: ", months[props.selected.getMonth()])}>
-    Add Event
-</button> */
-}
-{
-    /* <button onClick>-</button> */
-}

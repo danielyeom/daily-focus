@@ -45,37 +45,6 @@ export default function CalendarWidget() {
     });
     const [showEvents, showEventsState] = useState(false);
 
-    const eventLists = [
-        // {
-        //     id: ,
-        //     date: ,
-        //     month: ,
-        //     title: ,
-        //     description:
-        // }
-        {
-            id: 1,
-            date: 4,
-            month: 2,
-            title: "test 1",
-            description: "This is test event 1",
-        },
-        {
-            id: 2,
-            date: 4,
-            month: 2,
-            title: "test 2",
-            description: "This is test event 2",
-        },
-        {
-            id: 3,
-            date: 16,
-            month: 12,
-            title: "test 3",
-            description: "This is test event 3!",
-        },
-    ];
-
     //function to update event list element
     const titleChangedHandler = (event1, id) => {
         const eventIndex = eventList.events.findIndex((p) => {

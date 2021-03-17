@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import Calendar from "react-calendar";
 import EventView from "./EventView/";
+import NewEvent from "./NewEvent";
 import initialEvents from "./initial-events.js";
 
 const compareDate = (day1, day2) => {
@@ -22,6 +23,14 @@ export default function CalendarWidget() {
         <div>{events.map((event) => (compareDate(event.date, date) ? event.title : null))}</div>
     );
 
+    const onAddNewEvent = (event) => {
+        // console.log(event.date.getDate() + "\n" + event.title + "\n" + event.description);
+        setEvents([...events, event]);
+        events.map((ev) =>
+            console.log(ev.date.getDate() + "\n" + ev.title + "\n" + ev.description)
+        );
+    };
+
     return (
         <div>
             <div style={{ width: "400px" }}>
@@ -29,6 +38,9 @@ export default function CalendarWidget() {
             </div>
             <div>
                 <EventView selected={selected} events={events} />
+            </div>
+            <div>
+                <NewEvent selected={selected} onAddNewEvent={onAddNewEvent} />
             </div>
         </div>
     );

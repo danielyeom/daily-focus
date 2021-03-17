@@ -24,8 +24,23 @@ export default function CalendarWidget() {
     );
 
     //DOESN'T RE RENDER
-    const onAddNewEvent = (event) => {
-        setEvents([...events, event]);
+    const onAddNewEvent = (title, description) => {
+        setEvents([
+            ...events,
+            {
+                date: new Date(
+                    selected.getMonth() +
+                        " " +
+                        selected.getDate() +
+                        ", " +
+                        selected.getYear() +
+                        " " +
+                        "00:00:00"
+                ),
+                title: title,
+                description: description,
+            },
+        ]);
     };
 
     return (
@@ -37,7 +52,7 @@ export default function CalendarWidget() {
                 <EventView selected={selected} events={events} />
             </div>
             <div>
-                <NewEvent selected={selected} onAddNewEvent={onAddNewEvent} />
+                <NewEvent onAddNewEvent={onAddNewEvent} />
             </div>
         </div>
     );

@@ -3,28 +3,14 @@
 import React from "react";
 import { useState } from "react";
 
-export default function NewEvent({ selected, onAddNewEvent }) {
+export default function NewEvent({ onAddNewEvent }) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
 
     const AddEventHandler = () => {
-        const date = new Date(
-            selected.getMonth() +
-                " " +
-                selected.getDate() +
-                ", " +
-                selected.getYear() +
-                " " +
-                "00:00:00"
-        );
-        const event = {
-            date: date,
-            title: title,
-            description: description,
-        };
+        onAddNewEvent(title, description);
         setTitle("");
         setDescription("");
-        onAddNewEvent(event);
     };
 
     return (

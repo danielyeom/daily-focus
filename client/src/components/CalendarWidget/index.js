@@ -8,23 +8,15 @@ export default function CalendarWidget() {
     const [selected, setSelected] = useState(new Date());
 
     const events = [
-        // {
-        //     id: ,
-        //     date: ,
-        //     title: ,
-        //     description:
-        // }
         {
             id: 1,
-            date: 2,
-            month: "",
+            date: new Date("March 2, 2021 02:00:00"),
             title: "test 1",
             description: "This is test event one 1",
         },
         {
             id: 2,
-            date: 12,
-            month: "",
+            date: new Date("March 17, 2021 21:00:00"),
             title: "test 2",
             description: "This is test event 2!",
         },
@@ -32,7 +24,15 @@ export default function CalendarWidget() {
 
     //renders the array
     const tileContent = ({ date }) => (
-        <div>{events.map((val) => (val.date === date.getDate() ? val.title : null))}</div>
+        <div>
+            {events.map((event) =>
+                event.date.getDate() === date.getDate() &&
+                event.date.getMonth() === date.getMonth() &&
+                event.date.getYear() === date.getYear()
+                    ? event.title
+                    : null
+            )}
+        </div>
     );
     return (
         <div>

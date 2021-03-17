@@ -23,12 +23,9 @@ export default function CalendarWidget() {
         <div>{events.map((event) => (compareDate(event.date, date) ? event.title : null))}</div>
     );
 
+    //DOESN'T RE RENDER
     const onAddNewEvent = (event) => {
-        // console.log(event.date.getDate() + "\n" + event.title + "\n" + event.description);
         setEvents([...events, event]);
-        events.map((ev) =>
-            console.log(ev.date.getDate() + "\n" + ev.title + "\n" + ev.description)
-        );
     };
 
     return (

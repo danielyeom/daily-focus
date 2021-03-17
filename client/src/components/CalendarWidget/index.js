@@ -3,37 +3,25 @@ import React from "react";
 import { useState } from "react";
 import Calendar from "react-calendar";
 import EventView from "./EventView/";
+import initialEvents from "./initial-events.js";
+
+const compareDate = (day1, day2) => {
+    return (
+        day1.getFullYear() === day2.getFullYear() &&
+        day1.getMonth() === day2.getMonth() &&
+        day1.getDate() === day2.getDate()
+    );
+};
 
 export default function CalendarWidget() {
     const [selected, setSelected] = useState(new Date());
+    const [events, setEvents] = useState(initialEvents);
 
-    const events = [
-        {
-            id: 1,
-            date: new Date("March 2, 2021 02:00:00"),
-            title: "test 1",
-            description: "This is test event one 1",
-        },
-        {
-            id: 2,
-            date: new Date("March 17, 2021 21:00:00"),
-            title: "test 2",
-            description: "This is test event 2!",
-        },
-    ];
-
-    //renders the array
+    //Add content to the calendar tiles
     const tileContent = ({ date }) => (
-        <div>
-            {events.map((event) =>
-                event.date.getDate() === date.getDate() &&
-                event.date.getMonth() === date.getMonth() &&
-                event.date.getYear() === date.getYear()
-                    ? event.title
-                    : null
-            )}
-        </div>
+        <div>{events.map((event) => (compareDate(event.date, date) ? event.title : null))}</div>
     );
+
     return (
         <div>
             <div style={{ width: "400px" }}>

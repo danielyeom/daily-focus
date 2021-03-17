@@ -22,9 +22,9 @@ function App() {
                     Learn React
                 </a> */}
             </header>
-            <body>
+            <div>
                 <CalendarWidget />
-            </body>
+            </div>
         </div>
     );
 }

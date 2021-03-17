@@ -26,7 +26,7 @@ export default function NewEvent({ onAddNewEvent }) {
                 ></input>
             </div>
 
-            <button onClick={AddEventHandler}>Add Event</button>
+            <button onClick={() => AddEventHandler()}>Add Event</button>
         </div>
     );
 }

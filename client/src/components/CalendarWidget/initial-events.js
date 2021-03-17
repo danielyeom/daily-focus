@@ -11,9 +11,15 @@ const initialEvents = [
     },
     {
         id: 2,
-        date: new Date("March 17, 2021 21:00:00"),
+        date: new Date("March 2, 2021 03:00:00"),
         title: "test 2",
-        description: "This is test event 2!",
+        description: "This is test 2, on the same day as test 1",
+    },
+    {
+        id: 3,
+        date: new Date("March 17, 2021 21:00:00"),
+        title: "test 3",
+        description: "This is test event 3!",
     },
 ];
 

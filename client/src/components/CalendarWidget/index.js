@@ -28,7 +28,7 @@ export default function CalendarWidget() {
                 <Calendar onClickDay={(value) => setSelected(value)} tileContent={tileContent} />
             </div>
             <div>
-                <EventView selected={selected} />
+                <EventView selected={selected} events={events} />
             </div>
         </div>
     );

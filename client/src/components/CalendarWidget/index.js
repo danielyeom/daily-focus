@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import Calendar from "react-calendar";
-import EventView from "./EventView/EventView.js";
+import EventView from "./EventView/";
 
 export default function CalendarWidget() {
     const [selected, setSelected] = useState(new Date());
@@ -16,26 +16,28 @@ export default function CalendarWidget() {
         // }
         {
             id: 1,
-            date: 4,
+            date: 2,
+            month: "",
             title: "test 1",
             description: "This is test event one 1",
         },
         {
             id: 2,
-            date: 16,
+            date: 12,
+            month: "",
             title: "test 2",
             description: "This is test event 2!",
         },
     ];
 
     //renders the array
-    const content = ({ date }) => (
+    const tileContent = ({ date }) => (
         <div>{events.map((val) => (val.date === date.getDate() ? val.title : null))}</div>
     );
     return (
         <div>
             <div style={{ width: "400px" }}>
-                <Calendar onClickDay={(value) => setSelected(value)} tileContent={content} />
+                <Calendar onClickDay={(value) => setSelected(value)} tileContent={tileContent} />
             </div>
             <div>
                 <EventView selected={selected} />

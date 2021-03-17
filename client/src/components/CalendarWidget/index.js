@@ -44,8 +44,8 @@ export default function CalendarWidget() {
     const onRemoveEvent = (index) => {
         events.splice(index, 1);
         setEvents([...events]);
-    };
-
+    }
+    
     return (
         <div>
             <div style={{ width: "400px" }}>

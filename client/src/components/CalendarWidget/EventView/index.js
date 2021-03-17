@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+<<<<<<< HEAD
 const months = [
     "January",
     "February",
@@ -15,6 +16,31 @@ const months = [
     "November",
     "December",
 ];
+=======
+const compareDate = (day1, day2) => {
+    return (
+        day1.getFullYear() === day2.getFullYear() &&
+        day1.getMonth() === day2.getMonth() &&
+        day1.getDate() === day2.getDate()
+    );
+};
+
+export default function EventView({ selected, events }) {
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+>>>>>>> added event display functionality to the EventView component
 
 //evaluates truthy if the two date objects have the same day
 const compareDate = (day1, day2) => {
@@ -43,6 +69,7 @@ export default function EventView({ selected, events, onRemoveEvent }) {
                 {selected.getDate()} {months[selected.getMonth()]}
             </h2>
             <ul>
+<<<<<<< HEAD
                 {events.map((event, index) =>
                     compareDate(selected, event.date) ? (
                         <div key={index}>
@@ -53,10 +80,23 @@ export default function EventView({ selected, events, onRemoveEvent }) {
                             <button onClick={() => onRemoveEvent(events.indexOf(event))}>
                                 Remove Event
                             </button>
+=======
+                {events.map((event) =>
+                    compareDate(selected, event.date) ? (
+                        <div>
+                            <h3>{event.title}</h3>
+                            <p>{event.description}</p>
+>>>>>>> added event display functionality to the EventView component
                         </div>
                     ) : null
                 )}
             </ul>
+<<<<<<< HEAD
+=======
+            <button onClick={() => console.log("trying to add event for: ", selected.getDate())}>
+                Add Event
+            </button>
+>>>>>>> added event display functionality to the EventView component
         </div>
     );
 }

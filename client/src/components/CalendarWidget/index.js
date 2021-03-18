@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Calendar from "react-calendar";
 import EventView from "./EventView/";
 import NewEvent from "./NewEvent";
@@ -23,17 +21,17 @@ export default function CalendarWidget() {
         <div>{events.map((event) => (compareDate(event.date, date) ? event.title : null))}</div>
     );
 
-    //DOESN'T RE RENDER
     const onAddNewEvent = (title, description) => {
         setEvents([
             ...events,
             {
                 date: new Date(
-                    selected.getMonth().toString() +
+                    selected.getMonth() +
+                        1 +
                         " " +
-                        selected.getDate().toString() +
+                        selected.getDate() +
                         ", " +
-                        selected.getYear().toString() +
+                        (selected.getYear() + 1900) +
                         " " +
                         "00:00:00"
                 ),
@@ -41,7 +39,6 @@ export default function CalendarWidget() {
                 description: description,
             },
         ]);
-        // events.map((event) => console.log(event.date.getDate()));
     };
 
     return (

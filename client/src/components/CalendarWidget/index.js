@@ -29,7 +29,7 @@ export default function CalendarWidget() {
                     selected.getMonth() +
                         1 +
                         " " +
-                        selected.getDate().toString() +
+                        selected.getDate() +
                         ", " +
                         (selected.getYear() + 1900) +
                         " " +
@@ -39,7 +39,6 @@ export default function CalendarWidget() {
                 description: description,
             },
         ]);
-        // events.map((event) => console.log(event.date.getDate()));
     };
 
     const onRemoveEvent = (index) => {

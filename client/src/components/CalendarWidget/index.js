@@ -15,7 +15,6 @@ const compareDate = (day1, day2) => {
 export default function CalendarWidget() {
     const [selected, setSelected] = useState(new Date());
     const [events, setEvents] = useState(initialEvents);
-    const [test, setTest] = useState("bruh");
 
     //Add content to the calendar tiles
     const tileContent = ({ date }) => (
@@ -40,7 +39,7 @@ export default function CalendarWidget() {
                 description: description,
             },
         ]);
-        events.map((event) => console.log(event.date.getDate()));
+        // events.map((event) => console.log(event.date.getDate()));
     };
 
     const onRemoveEvent = (index) => {
@@ -59,7 +58,6 @@ export default function CalendarWidget() {
             <div>
                 <NewEvent onAddNewEvent={onAddNewEvent} />
             </div>
-            <button onClick={() => setTest(test === "bruh" ? "bro" : "bruh")}>{test}</button>
         </div>
     );
 }

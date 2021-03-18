@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var database = require('../firebase.js').database;
+//
 
 /* GET all todo list entries */
 router.get('/', function(req, res, next) {
@@ -26,10 +28,10 @@ router.put('/', function(req, res, next) {
 
 
 /* DELETE todo list entry*/
-router.delete('/', function(req, res, next) {
-    // TODO implementation deleting entry from our database
-
-    res.send('delete todo list entry'); // TODO change response after
+router.delete('/:userId', function(req, res, next) {
+    // // TODO Error handling
+    database.ref(req.params.userId).remove();
+    res.send({'statusCode': 200, 'response': 'Deleted todo item successfully.'}); // TODO change response after
 });
 
 

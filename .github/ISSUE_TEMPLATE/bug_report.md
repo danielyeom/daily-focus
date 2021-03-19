@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Template for an issue that reports a bug
-title: ''
+title: ""
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
 
 **Describe the bug**

@@ -1,10 +1,9 @@
 ---
 name: Setup
 about: Template for an issue for changes that aid development
-title: ''
+title: ""
 labels: setup
-assignees: ''
-
+assignees: ""
 ---
 
 **Developer Story**
@@ -12,9 +11,9 @@ assignees: ''
 As a developer, I...
 
 **Acceptance Criteria**
-[A bullet point list to describe what must be done]  
+[A bullet point list to describe what must be done]
 
-**Additional Context** 
+**Additional Context**
 [Any other useful information]
 
 **Dependencies**

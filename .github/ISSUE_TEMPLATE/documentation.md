@@ -1,10 +1,9 @@
 ---
 name: Documentation
 about: Template for an issue for a piece of documentation
-title: ''
+title: ""
 labels: documentation
-assignees: ''
-
+assignees: ""
 ---
 
 **Team Story**

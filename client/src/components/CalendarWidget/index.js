@@ -45,7 +45,7 @@ export default function CalendarWidget() {
         events.splice(index, 1);
         setEvents([...events]);
     };
-    
+
     return (
         <div>
             <div style={{ width: "400px" }}>

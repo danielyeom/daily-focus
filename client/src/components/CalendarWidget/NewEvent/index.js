@@ -16,12 +16,18 @@ export default function NewEvent({ onAddNewEvent }) {
         <div>
             <div>
                 <label>New Event</label>
-                <input type="text" value={title} onInput={(e) => setTitle(e.target.value)}></input>
+                <input
+                    type="text"
+                    value={title}
+                    onInput={(e) => setTitle(e.target.value)}
+                    onChange={() => null}
+                ></input>
                 <label>Description</label>
                 <input
                     type="text"
                     value={description}
                     onInput={(e) => setDescription(e.target.value)}
+                    onChange={() => null}
                 ></input>
             </div>
 

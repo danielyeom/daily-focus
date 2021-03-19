@@ -1,10 +1,9 @@
 ---
 name: Enhancement
 about: Template for an issue for a new feature
-title: ''
+title: ""
 labels: enhancement
-assignees: ''
-
+assignees: ""
 ---
 
 **User Story**

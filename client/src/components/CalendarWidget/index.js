@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import EventView from "./EventView/";
+import EventView from "./EventView";
 import NewEvent from "./NewEvent";
 import initialEvents from "./initial-events.js";
 

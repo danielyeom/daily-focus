@@ -41,13 +41,18 @@ export default function CalendarWidget() {
         ]);
     };
 
+    const onRemoveEvent = (index) => {
+        events.splice(index, 1);
+        setEvents([...events]);
+    };
+
     return (
         <div>
             <div style={{ width: "400px" }}>
                 <Calendar onClickDay={(value) => setSelected(value)} tileContent={tileContent} />
             </div>
             <div>
-                <EventView selected={selected} events={events} />
+                <EventView selected={selected} events={events} onRemoveEvent={onRemoveEvent} />
             </div>
             <div>
                 <NewEvent onAddNewEvent={onAddNewEvent} />

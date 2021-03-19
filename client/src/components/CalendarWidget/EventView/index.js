@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 
 const months = [
     "January",
@@ -36,7 +36,7 @@ const formatTime = (date) => {
     return hours + ":" + minutes + " " + ampm;
 };
 
-export default function EventView({ selected, events }) {
+export default function EventView({ selected, events, onRemoveEvent }) {
     return (
         <div>
             <h2>
@@ -50,6 +50,9 @@ export default function EventView({ selected, events }) {
                                 {formatTime(event.date)} {event.title}
                             </h3>
                             <p>{event.description}</p>
+                            <button onClick={() => onRemoveEvent(events.indexOf(event))}>
+                                Remove Event
+                            </button>
                         </div>
                     ) : null
                 )}
@@ -57,3 +60,9 @@ export default function EventView({ selected, events }) {
         </div>
     );
 }
+
+EventView.propTypes = {
+    selected: PropTypes.instanceOf(Date),
+    events: PropTypes.array,
+    onRemoveEvent: PropTypes.func,
+};

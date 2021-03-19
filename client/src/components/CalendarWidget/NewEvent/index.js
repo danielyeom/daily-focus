@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React from "react";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function NewEvent({ onAddNewEvent }) {
     const [title, setTitle] = useState("");
@@ -30,3 +29,7 @@ export default function NewEvent({ onAddNewEvent }) {
         </div>
     );
 }
+
+NewEvent.propTypes = {
+    onAddNewEvent: PropTypes.func,
+};

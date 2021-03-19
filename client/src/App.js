@@ -1,5 +1,5 @@
 import React from "react";
-import CalendarWidget from "./components/CalendarWidget/CalendarWidget";
+import CalendarWidget from "./components/CalendarWidget";
 // import logo from "./logo.svg";
 import "./style.css";
 
@@ -22,9 +22,9 @@ function App() {
                     Learn React
                 </a> */}
             </header>
-            <body>
+            <div>
                 <CalendarWidget />
-            </body>
+            </div>
         </div>
     );
 }

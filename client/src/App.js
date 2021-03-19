@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import CalendarWidget from "./components/CalendarWidget/CalendarWidget";
-=======
 import CalendarWidget from "./components/CalendarWidget";
->>>>>>> 05fe65ace1cef852408012050c7963753e51c2b5
 // import logo from "./logo.svg";
 import "./style.css";
 
@@ -26,15 +22,9 @@ function App() {
                     Learn React
                 </a> */}
             </header>
-<<<<<<< HEAD
-            <body>
-                <CalendarWidget />
-            </body>
-=======
             <div>
                 <CalendarWidget />
             </div>
->>>>>>> 05fe65ace1cef852408012050c7963753e51c2b5
         </div>
     );
 }

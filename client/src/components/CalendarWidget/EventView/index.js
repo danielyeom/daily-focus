@@ -16,6 +16,8 @@ const months = [
     "December",
 ];
 
+const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 //formats the time of day of the event object
 const formatTime = (eventTime) => {
     var hours = eventTime.hours;
@@ -31,7 +33,7 @@ export default function EventView({ selected, displayEvents, onRemoveEvent }) {
     return (
         <div>
             <h2>
-                {selected.getDate()} {months[selected.getMonth()]}
+                {weekdays[selected.getDay()]} {selected.getDate()} {months[selected.getMonth()]}
             </h2>
             {displayEvents.length === 0 ? null : (
                 <ul>

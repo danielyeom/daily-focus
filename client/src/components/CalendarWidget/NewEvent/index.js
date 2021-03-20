@@ -7,15 +7,35 @@ export default function NewEvent({ onAddNewEvent }) {
     const [description, setDescription] = useState("");
     const [hours, setHours] = useState("");
     const [minutes, setMinutes] = useState("");
+    const [pm, setPm] = useState(false);
 
+    /**
+     * Gives back hours, minutes, title, and description of a new event to the parent component.
+     * adds 12 hours if 'ampm' is set to pm
+     * accounts for 24 hour time, regardless of 'ampm' setting
+     */
     const AddEventHandler = () => {
-        const hrs = parseInt(hours) || 8;
-        const mins = parseInt(minutes) || 0;
+        let hrs = parseInt(hours) || 8;
+        let mins = parseInt(minutes) || 0;
+        if (hrs < 13 && pm) {
+            hrs += 12;
+        }
+        if (hrs > 24) {
+            hrs = 8;
+        }
+        if (mins > 59) {
+            mins = 0;
+        }
         onAddNewEvent(title, hrs, mins, description);
         setTitle("");
         setDescription("");
         setHours("");
         setMinutes("");
+        setPm(false);
+    };
+
+    const onClickAmpm = () => {
+        setPm(!pm);
     };
 
     return (
@@ -46,6 +66,7 @@ export default function NewEvent({ onAddNewEvent }) {
                     onChange={() => null}
                     style={{ width: 20 }}
                 ></input>
+                <button onClick={onClickAmpm}>{pm ? "pm" : "am"}</button>
             </div>
             <div>
                 <label>Description</label>

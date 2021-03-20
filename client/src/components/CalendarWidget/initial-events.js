@@ -4,19 +4,37 @@
 
 const initialEvents = [
     {
-        date: new Date("March 2, 2021 02:00:00"),
-        title: "test 1",
-        description: "This is test event one 1",
+        time: {
+            date: 17,
+            month: 3,
+            year: 2021,
+            hours: 9,
+            minutes: 30,
+        },
+        title: "test1",
+        description: "test event one!",
     },
     {
-        date: new Date("March 2, 2021 03:00:00"),
-        title: "test 2",
-        description: "This is test 2, on the same day as test 1",
+        time: {
+            date: 17,
+            month: 3,
+            year: 2021,
+            hours: 21,
+            minutes: 45,
+        },
+        title: "test2",
+        description: "test event two, same day as T1!",
     },
     {
-        date: new Date("March 17, 2021 21:00:00"),
-        title: "test 3",
-        description: "This is test event 3!",
+        time: {
+            date: 21,
+            month: 3,
+            year: 2021,
+            hours: 0,
+            minutes: 0,
+        },
+        title: "test3",
+        description: "test event three!",
     },
 ];
 

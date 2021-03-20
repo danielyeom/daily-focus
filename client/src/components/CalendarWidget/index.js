@@ -4,11 +4,11 @@ import EventView from "./EventView";
 import NewEvent from "./NewEvent";
 import initialEvents from "./initial-events.js";
 
-const compareDate = (day1, day2) => {
+const compareDate = (eventTime, date) => {
     return (
-        day1.getFullYear() === day2.getFullYear() &&
-        day1.getMonth() === day2.getMonth() &&
-        day1.getDate() === day2.getDate()
+        eventTime.year === date.getFullYear() &&
+        eventTime.month === date.getMonth() + 1 &&
+        eventTime.date === date.getDate()
     );
 };
 
@@ -18,23 +18,20 @@ export default function CalendarWidget() {
 
     //Add content to the calendar tiles
     const tileContent = ({ date }) => (
-        <div>{events.map((event) => (compareDate(event.date, date) ? event.title : null))}</div>
+        <div>{events.map((event) => (compareDate(event.time, date) ? event.title : null))}</div>
     );
 
     const onAddNewEvent = (title, description) => {
         setEvents([
             ...events,
             {
-                date: new Date(
-                    selected.getMonth() +
-                        1 +
-                        " " +
-                        selected.getDate() +
-                        ", " +
-                        (selected.getYear() + 1900) +
-                        " " +
-                        "00:00:00"
-                ),
+                time: {
+                    date: selected.getDate(),
+                    month: selected.getMonth() + 1,
+                    year: selected.getYear() + 1900,
+                    hours: 0,
+                    minutes: 0,
+                },
                 title: title,
                 description: description,
             },

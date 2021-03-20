@@ -16,19 +16,18 @@ const months = [
     "December",
 ];
 
-//evaluates truthy if the two date objects have the same day
-const compareDate = (day1, day2) => {
+const compareDate = (eventTime, date) => {
     return (
-        day1.getFullYear() === day2.getFullYear() &&
-        day1.getMonth() === day2.getMonth() &&
-        day1.getDate() === day2.getDate()
+        eventTime.year === date.getFullYear() &&
+        eventTime.month === date.getMonth() + 1 &&
+        eventTime.date === date.getDate()
     );
 };
 
-//formats the time of day of the date object
-const formatTime = (date) => {
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
+//formats the time of day of the event object
+const formatTime = (eventTime) => {
+    var hours = eventTime.hours;
+    var minutes = eventTime.minutes;
     var ampm = hours >= 12 ? "pm" : "am";
     hours = hours % 12;
     hours = hours ? hours : 12;
@@ -44,10 +43,10 @@ export default function EventView({ selected, events, onRemoveEvent }) {
             </h2>
             <ul>
                 {events.map((event, index) =>
-                    compareDate(selected, event.date) ? (
+                    compareDate(event.time, selected) ? (
                         <div key={index}>
                             <h3>
-                                {formatTime(event.date)} {event.title}
+                                {formatTime(event.time)} {event.title}
                             </h3>
                             <p>{event.description}</p>
                             <button onClick={() => onRemoveEvent(events.indexOf(event))}>

@@ -6,11 +6,12 @@ import NewEvent from "./NewEvent";
 import createPersistedState from "use-persisted-state";
 const useEventListState = createPersistedState("events");
 
-const compareDate = (eventTime, date) => {
+//compares the date of an event and a date object.
+const compareDate = (event, date) => {
     return (
-        eventTime.year === date.getFullYear() &&
-        eventTime.month === date.getMonth() + 1 &&
-        eventTime.date === date.getDate()
+        event.time.year === date.getFullYear() &&
+        event.time.month === date.getMonth() + 1 &&
+        event.time.date === date.getDate()
     );
 };
 
@@ -20,7 +21,7 @@ export default function CalendarWidget() {
 
     //Add content to the calendar tiles
     const tileContent = ({ date }) => (
-        <div>{events.map((event) => (compareDate(event.time, date) ? event.title : null))}</div>
+        <div>{events.map((event) => (compareDate(event, date) ? event.title : null))}</div>
     );
 
     const onAddNewEvent = (title, hours, minutes, description) => {
@@ -54,7 +55,7 @@ export default function CalendarWidget() {
             <div>
                 <EventView
                     selected={selected}
-                    displayEvents={events.filter((event) => compareDate(event.time, selected))}
+                    displayEvents={events.filter((event) => compareDate(event, selected))}
                     onRemoveEvent={onRemoveEvent}
                 />
             </div>

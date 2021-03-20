@@ -16,14 +16,6 @@ const months = [
     "December",
 ];
 
-const compareDate = (eventTime, date) => {
-    return (
-        eventTime.year === date.getFullYear() &&
-        eventTime.month === date.getMonth() + 1 &&
-        eventTime.date === date.getDate()
-    );
-};
-
 //formats the time of day of the event object
 const formatTime = (eventTime) => {
     var hours = eventTime.hours;
@@ -35,27 +27,25 @@ const formatTime = (eventTime) => {
     return hours + ":" + minutes + " " + ampm;
 };
 
-export default function EventView({ selected, events, onRemoveEvent }) {
+export default function EventView({ selected, displayEvents, onRemoveEvent }) {
     return (
         <div>
             <h2>
                 {selected.getDate()} {months[selected.getMonth()]}
             </h2>
-            <ul>
-                {events.map((event, index) =>
-                    compareDate(event.time, selected) ? (
+            {displayEvents.length === 0 ? null : (
+                <ul>
+                    {displayEvents.map((event, index) => (
                         <div key={index}>
                             <h3>
                                 {formatTime(event.time)} {event.title}
                             </h3>
                             <p>{event.description}</p>
-                            <button onClick={() => onRemoveEvent(events.indexOf(event))}>
-                                Remove Event
-                            </button>
+                            <button onClick={() => onRemoveEvent(event)}>Remove Event</button>
                         </div>
-                    ) : null
-                )}
-            </ul>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }

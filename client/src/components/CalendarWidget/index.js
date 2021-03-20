@@ -4,6 +4,9 @@ import EventView from "./EventView";
 import NewEvent from "./NewEvent";
 import initialEvents from "./initial-events.js";
 
+import createPersistedState from "use-persisted-state";
+const useEventListState = createPersistedState("events");
+
 const compareDate = (eventTime, date) => {
     return (
         eventTime.year === date.getFullYear() &&
@@ -14,7 +17,7 @@ const compareDate = (eventTime, date) => {
 
 export default function CalendarWidget() {
     const [selected, setSelected] = useState(new Date());
-    const [events, setEvents] = useState(initialEvents);
+    const [events, setEvents] = useEventListState([]);
 
     //Add content to the calendar tiles
     const tileContent = ({ date }) => (

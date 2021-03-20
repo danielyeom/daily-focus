@@ -5,11 +5,17 @@ import PropTypes from "prop-types";
 export default function NewEvent({ onAddNewEvent }) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [hours, setHours] = useState("");
+    const [minutes, setMinutes] = useState("");
 
     const AddEventHandler = () => {
-        onAddNewEvent(title, description);
+        const hrs = parseInt(hours) || 8;
+        const mins = parseInt(minutes) || 0;
+        onAddNewEvent(title, hrs, mins, description);
         setTitle("");
         setDescription("");
+        setHours("");
+        setMinutes("");
     };
 
     return (
@@ -22,6 +28,26 @@ export default function NewEvent({ onAddNewEvent }) {
                     onInput={(e) => setTitle(e.target.value)}
                     onChange={() => null}
                 ></input>
+            </div>
+            <div>
+                <label>Time</label>
+                <input
+                    type="text"
+                    value={hours}
+                    onInput={(e) => setHours(e.target.value)}
+                    onChange={() => null}
+                    style={{ width: 20 }}
+                ></input>
+                {" : "}
+                <input
+                    type="text"
+                    value={minutes}
+                    onInput={(e) => setMinutes(e.target.value)}
+                    onChange={() => null}
+                    style={{ width: 20 }}
+                ></input>
+            </div>
+            <div>
                 <label>Description</label>
                 <input
                     type="text"

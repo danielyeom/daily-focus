@@ -21,7 +21,7 @@ export default function CalendarWidget() {
         <div>{events.map((event) => (compareDate(event.time, date) ? event.title : null))}</div>
     );
 
-    const onAddNewEvent = (title, description) => {
+    const onAddNewEvent = (title, hours, minutes, description) => {
         setEvents([
             ...events,
             {
@@ -29,8 +29,8 @@ export default function CalendarWidget() {
                     date: selected.getDate(),
                     month: selected.getMonth() + 1,
                     year: selected.getYear() + 1900,
-                    hours: 0,
-                    minutes: 0,
+                    hours: hours,
+                    minutes: minutes,
                 },
                 title: title,
                 description: description,
